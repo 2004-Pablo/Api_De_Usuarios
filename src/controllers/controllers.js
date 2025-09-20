@@ -7,4 +7,15 @@ const getUsers = async (_,res) => {
 }
 controllers.getUsers = getUsers
 
+const getUserById = async(req,res) => {
+    const { id } = req.params
+    try{
+        const foundUser = await user.findByPk(id)
+        res.status(200).json(foundUser)
+    }catch(err){
+        res.status(404).json({messaje: "Usuario no encontrado"})
+    }
+}
+controllers.getUserById = getUserById
+
 module.exports = controllers
