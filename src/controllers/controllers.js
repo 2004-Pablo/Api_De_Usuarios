@@ -18,4 +18,15 @@ const getUserById = async(req,res) => {
 }
 controllers.getUserById = getUserById
 
+const createUser = async (req, res) => {
+    try {
+        const newUser = await user.create(req.body)
+        newUser.save()
+        res.status(201).json(newUser) 
+    } catch (error) {
+        console.error("Error al crear el usuario:", error);
+    }
+}
+controllers.createUser = createUser
+
 module.exports = controllers
