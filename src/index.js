@@ -1,8 +1,9 @@
 const express = require('express');
 const app = express()
-const userRoutes = require('./routes/routes.js')
-//const db = require('./db/models')['sequelize']
+const userRoutes = require('./routes/user.routes.js')
+const db = require('./db/models')['sequelize']
 
+//uso de jsons
 app.use(express.json())
 app.use('/api/users', userRoutes)
 
@@ -12,6 +13,6 @@ app.listen(PORT,(err)=>{
         console.error('Error: ', err.message)
         process.exit(1)
     }
-    //db.sync({forse: true}) reinicia la base de datom MUY Peligroso
+    db.sync({forse: true}) //reinicia la base de datom MUY Peligroso
     console.log(`El servidor esta escuchando en el puerto ${PORT}`)
 })
