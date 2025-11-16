@@ -1,11 +1,10 @@
-const { User } = require('../db/models');
+const { User, Tarea } = require('../db/models');
 const controllers = {}
 
 const getUsers = async (_,res) => {
     const users = await User.findAll()
     res.status(200).json(users)
 }
-
 
 const getUserById = async(req,res) => {
     const { id } = req.params
