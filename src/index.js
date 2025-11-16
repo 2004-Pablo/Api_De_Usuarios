@@ -1,11 +1,11 @@
 const express = require('express');
 const app = express()
-const userRoutes = require('./routes/user.routes.js')
+const userRoutes = require('./routes/routes.js')
 const db = require('./db/models')['sequelize']
 
 //uso de jsons
 app.use(express.json())
-app.use('/api/users', userRoutes)
+app.use('/api/v1', userRoutes)
 
 const PORT = process.env.PORT || 3000
 app.listen(PORT,(err)=>{

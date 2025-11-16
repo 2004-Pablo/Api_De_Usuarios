@@ -1,6 +1,6 @@
 const { userSchema } = require('../schemas/user.schema')
-const { validatorShemas } = require('../schemas/schemaValidator')
+const { validateShema } = require('./validate.schemas')
 
-const validateUser = validatorShemas(userSchema)
+const validateUser = validateShema(userSchema)
 
 module.exports = { validateUser }
